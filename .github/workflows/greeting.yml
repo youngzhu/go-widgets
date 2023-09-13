@@ -21,7 +21,7 @@ jobs:
       with:
         go-version: '1.17'
 
-    - name: Run
+    - name: Greeting
       env:
         TZ: Asia/Shanghai
       run: go run greeting/main.go
