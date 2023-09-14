@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	smail "github.com/youngzhu/go-smail"
 	"time"
 )
 
@@ -22,9 +23,11 @@ const (
 func main() {
 	msg := greeting(time.Now())
 	if msg != "" {
-		fmt.Println("问候: " + msg)
+		//fmt.Println("问候: " + msg)
+		smail.SendMail("Greeting", msg)
 	} else {
 		fmt.Println("休息！勿扰！")
+		smail.SendMail("勿扰 testing", "")
 	}
 }
 
