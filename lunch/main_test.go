@@ -58,16 +58,23 @@ func TestReadExtraDays_workdays(t *testing.T) {
 	}
 }
 
-func mustDate(year, month, day int) (date godate.Date) {
-	date, _ = godate.NewDateYMD(year, month, day)
-	return
-}
-
-func containsDate(slice []godate.Date, date godate.Date) bool {
-	for _, d := range slice {
-		if date.IsTheSameDay(d) {
-			return true
-		}
+func TestCountAllDays(t *testing.T) {
+	testcases := []struct {
+		date godate.Date
+		days int
+	}{
+		{mustDate(2023, 9, 15), 5},
+		{mustDate(2023, 9, 16), 5},
+		{mustDate(2023, 9, 17), 5},
+		{mustDate(2023, 9, 18), 6},
 	}
-	return false
+
+	for _, testcase := range testcases {
+		t.Run("", func(t *testing.T) {
+			got := countAllDays(testcase.date)
+			if got != testcase.days {
+				t.Errorf("want %d, but got %d", testcase.days, got)
+			}
+		})
+	}
 }
