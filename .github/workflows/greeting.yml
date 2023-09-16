@@ -27,4 +27,4 @@ jobs:
     - name: Greeting
       env:
         TZ: Asia/Shanghai
-      run: go run greeting/main.go
+      run: go run main.go
