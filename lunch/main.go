@@ -10,6 +10,8 @@ import (
 
 /*
 实现：有一组名单，轮流陪餐，遇到节假日顺延
+
+提前一天邮件通知指定姓名的同学
 */
 
 const (
@@ -77,21 +79,49 @@ func readExtraDays() {
 	}
 
 	scanner := bufio.NewScanner(f)
+	var dates []godate.Date
 	for scanner.Scan() {
 		line := scanner.Text()
 		prefix := line[0]
 
 		switch prefix {
+		case '+', '-':
+			dates = parseDate(line[1:])
+		}
+
+		switch prefix {
 		case '-':
-			extraHolidays = append(extraHolidays, parseDate(line))
+			extraHolidays = append(extraHolidays, dates...)
 		case '+':
-			extraWorkdays = append(extraWorkdays, parseDate(line))
+			extraWorkdays = append(extraWorkdays, dates...)
 		}
 	}
 }
 
-func parseDate(s string) godate.Date {
-	date := s[1:]
+func parseDate(s string) []godate.Date {
+	dates := make([]godate.Date, 0)
+
+	if strings.Contains(s, "-") {
+		// 日期区间
+		split := strings.Split(s, "-")
+		begin := split[0]
+		end := split[1]
+		beginDate := toDate(begin)
+		endDate := toDate(end)
+		for beginDate.Before(endDate.Time) {
+			dates = append(dates, beginDate)
+			beginDate, _ = beginDate.AddDay(1)
+		}
+		dates = append(dates, endDate)
+	} else {
+		// 单个日期
+		dates = append(dates, toDate(s))
+	}
+
+	return dates
+}
+
+func toDate(date string) godate.Date {
 	ymd := strings.Split(date, ".")
 	year, _ := strconv.Atoi(ymd[0])
 	mon, _ := strconv.Atoi(ymd[1])

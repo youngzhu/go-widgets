@@ -22,6 +22,7 @@ func TestReadExtraDays_holidays(t *testing.T) {
 	//fmt.Println(extraWorkdays)
 
 	holidays := []godate.Date{
+		mustDate(2023, 9, 19),
 		mustDate(2023, 10, 1),
 		mustDate(2023, 10, 2),
 		mustDate(2023, 10, 3),
