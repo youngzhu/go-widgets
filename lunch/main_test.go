@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/youngzhu/godate"
+	"strings"
 	"testing"
 )
 
@@ -75,6 +76,34 @@ func TestCountAllDays(t *testing.T) {
 			got := countAllDays(testcase.date)
 			if got != testcase.days {
 				t.Errorf("want %d, but got %d", testcase.days, got)
+			}
+		})
+	}
+}
+
+func TestWhoIs(t *testing.T) {
+	testcases := []struct {
+		date godate.Date
+		name string
+	}{
+		{mustDate(2023, 9, 11), "陈煜珉"},
+		{mustDate(2023, 9, 12), "王书颖"},
+		{mustDate(2023, 9, 12), "杭票"},
+		{mustDate(2023, 9, 13), "王重言"},
+		{mustDate(2023, 9, 14), "史昌浩"},
+		{mustDate(2023, 9, 15), "史玮宸"},
+		{mustDate(2023, 9, 15), "杨欣媛"},
+		{mustDate(2023, 9, 18), "孙谦"},
+		{mustDate(2023, 9, 18), "赵韵瑾"},
+		{mustDate(2023, 10, 7), "王子歇"},
+		{mustDate(2023, 10, 7), "朱诗玥"},
+	}
+
+	for _, testcase := range testcases {
+		t.Run("", func(t *testing.T) {
+			got := whoIs(testcase.date)
+			if !strings.Contains(got, testcase.name) {
+				t.Errorf("%q should contains %q", got, testcase.name)
 			}
 		})
 	}

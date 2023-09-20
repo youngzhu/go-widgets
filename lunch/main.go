@@ -22,6 +22,13 @@ func main() {
 	//name := ""
 }
 
+// 指定日期（date）该谁值班
+func whoIs(date godate.Date) string {
+	count := countAllDays(date)
+	idx := count%len(babies) - 1
+	return babies[idx]
+}
+
 func turn() int {
 	return 0
 }
@@ -146,6 +153,7 @@ func readBabies() {
 	}
 }
 
+// todo 替换掉
 func mustDate(year, month, day int) (date godate.Date) {
 	date, _ = godate.NewDateYMD(year, month, day)
 	return
