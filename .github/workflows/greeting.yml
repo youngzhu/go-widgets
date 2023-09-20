@@ -20,8 +20,14 @@ jobs:
       uses: actions/setup-go@v4
       with:
         go-version: '1.17'
+        
+    - name: Fetch required Go modules
+      run:  cd greeting && go mod download
 
     - name: Greeting
       env:
         TZ: Asia/Shanghai
-      run: go run greeting/main.go
+        GO_MAIL_FROM: ${{ secrets.GO_MAIL_FROM }}
+        GO_MAIL_FROM_PWD: ${{ secrets.GO_MAIL_FROM_PWD }}
+        GO_MAIL_TO: ${{ secrets.GO_MAIL_TO }}
+      run: cd greeting && go run main.go

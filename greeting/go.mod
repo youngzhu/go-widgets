@@ -2,7 +2,7 @@ module greeting
 
 go 1.17
 
-require github.com/youngzhu/go-smail v0.0.0-20230914090053-e106662f4498
+require github.com/youngzhu/go-smail v0.1.1
 
 require (
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect

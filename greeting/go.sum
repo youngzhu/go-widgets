@@ -1,5 +1,5 @@
-github.com/youngzhu/go-smail v0.0.0-20230914090053-e106662f4498 h1:+1xi4gqf4EIy9D/j11FQIsp162kNTkhXT9IKTjFHRDE=
-github.com/youngzhu/go-smail v0.0.0-20230914090053-e106662f4498/go.mod h1:ftExeNCNTwOxF0/BUhhYXaOiwvVeyNeIR7L6g+XZWtY=
+github.com/youngzhu/go-smail v0.1.1 h1:fJuQV7jrXyn/gJEvFHlxdr6t4xLguwzv4FCJVj6F2FI=
+github.com/youngzhu/go-smail v0.1.1/go.mod h1:ftExeNCNTwOxF0/BUhhYXaOiwvVeyNeIR7L6g+XZWtY=
 gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc h1:2gGKlE2+asNV9m7xrywl36YYNnBG5ZQ0r/BOOxqPpmk=
 gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc/go.mod h1:m7x9LTH6d71AHyAX77c9yqWCCa3UKHcVEj9y7hAtKDk=
 gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df h1:n7WqCuqOuCbNr617RXOY0AWRXxgwEyPp2z+p0+hgMuE=
