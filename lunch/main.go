@@ -2,6 +2,9 @@ package main
 
 import (
 	"bufio"
+	"flag"
+	"fmt"
+	smail "github.com/youngzhu/go-smail"
 	"github.com/youngzhu/godate"
 	"os"
 	"strconv"
@@ -18,19 +21,52 @@ const (
 	subject = "陪餐 11:20-12:20" // 邮件标题
 )
 
+func init() {
+	loadBabies()
+	loadExtraDays()
+}
+
 func main() {
-	//name := ""
+	name := flag.String("name", "", "学生的姓名")
+	flag.Parse()
+	fmt.Println(*name)
+
+	// 提前一天通知
+	// 今天检查明天是否是该同学值班
+	// 如果是，则发送提醒邮件
+	tomorrow, _ := godate.Today().AddDay(1)
+	if result := isTurn(*name, tomorrow); result {
+		smail.SendMail("", "")
+	}
+}
+
+func isTurn(name string, date godate.Date) bool {
+	return false
 }
 
 // 指定日期（date）该谁值班
 func whoIs(date godate.Date) string {
+	// 如果 date 是休息日，直接返回 ""
+	if isOffDay(date) {
+		return ""
+	}
 	count := countAllDays(date)
 	idx := count%len(babies) - 1
 	return babies[idx]
 }
 
-func turn() int {
-	return 0
+// 是否休息日
+func isOffDay(date godate.Date) bool {
+	//off1 := containsDate(extraHolidays, date)                     // 额外的休息日
+	//off2 := isWeekend(date) && !containsDate(extraWorkdays, date) // 周末 且 没有补班的
+	//
+	//return off1 || off2
+
+	if containsDate(extraHolidays, date) {
+		return true
+	}
+
+	return isWeekend(date) && !containsDate(extraWorkdays, date)
 }
 
 var startDate = mustDate(2023, 9, 11) // 陪餐首次开始的时间
@@ -79,7 +115,7 @@ var (
 	extraWorkdays = make([]godate.Date, 0)
 )
 
-func readExtraDays() {
+func loadExtraDays() {
 	f, err := os.Open("extra_days.txt")
 	if err != nil {
 		panic(err)
@@ -141,7 +177,7 @@ func toDate(date string) godate.Date {
 	return result
 }
 
-func readBabies() {
+func loadBabies() {
 	f, err := os.Open("babies.txt")
 	if err != nil {
 		panic(err)

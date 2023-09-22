@@ -6,19 +6,20 @@ import (
 	"testing"
 )
 
-func TestReadBabies(t *testing.T) {
-	want := 13
+// 放到了 init 中，函数会重复执行
+//func TestLoadBabies(t *testing.T) {
+//	want := 13
+//
+//	loadBabies()
+//	got := len(babies)
+//
+//	if got != want {
+//		t.Errorf("%d babies, but got %d", want, got)
+//	}
+//}
 
-	readBabies()
-	got := len(babies)
-
-	if got != want {
-		t.Errorf("%d babies, but got %d", want, got)
-	}
-}
-
-func TestReadExtraDays_holidays(t *testing.T) {
-	readExtraDays()
+func TestLoadExtraDays_holidays(t *testing.T) {
+	loadExtraDays()
 	//fmt.Println(extraHolidays)
 	//fmt.Println(extraWorkdays)
 
@@ -41,8 +42,8 @@ func TestReadExtraDays_holidays(t *testing.T) {
 	}
 }
 
-func TestReadExtraDays_workdays(t *testing.T) {
-	readExtraDays()
+func TestLoadExtraDays_workdays(t *testing.T) {
+	loadExtraDays()
 	//fmt.Println(extraHolidays)
 	//fmt.Println(extraWorkdays)
 
@@ -95,6 +96,7 @@ func TestWhoIs(t *testing.T) {
 		{mustDate(2023, 9, 15), "杨欣媛"},
 		{mustDate(2023, 9, 18), "孙谦"},
 		{mustDate(2023, 9, 18), "赵韵瑾"},
+		{mustDate(2023, 9, 21), ""},
 		{mustDate(2023, 10, 7), "王子歇"},
 		{mustDate(2023, 10, 7), "朱诗玥"},
 	}
