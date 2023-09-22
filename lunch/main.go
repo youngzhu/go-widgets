@@ -3,9 +3,9 @@ package main
 import (
 	"bufio"
 	"flag"
-	"fmt"
 	smail "github.com/youngzhu/go-smail"
 	"github.com/youngzhu/godate"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -26,22 +26,29 @@ func init() {
 	loadExtraDays()
 }
 
+// go run main.go -name 张三
 func main() {
 	name := flag.String("name", "", "学生的姓名")
 	flag.Parse()
-	fmt.Println(*name)
+	log.Println(*name)
 
 	// 提前一天通知
 	// 今天检查明天是否是该同学值班
 	// 如果是，则发送提醒邮件
 	tomorrow, _ := godate.Today().AddDay(1)
 	if result := isTurn(*name, tomorrow); result {
-		smail.SendMail("", "")
+		err := smail.SendMail("", "")
+		if err != nil {
+			log.Println("邮件发送失败：" + err.Error())
+		} else {
+			log.Println("邮件发送成功")
+		}
 	}
 }
 
 func isTurn(name string, date godate.Date) bool {
-	return false
+	names := whoIs(date)
+	return strings.Contains(names, name)
 }
 
 // 指定日期（date）该谁值班

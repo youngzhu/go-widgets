@@ -110,3 +110,37 @@ func TestWhoIs(t *testing.T) {
 		})
 	}
 }
+
+func TestIsTurn(t *testing.T) {
+	testcases := []struct {
+		date godate.Date
+		name string
+		want bool
+	}{
+		{mustDate(2023, 9, 11), "陈煜珉", true},
+		{mustDate(2023, 9, 12), "王书颖", true},
+		{mustDate(2023, 9, 12), "杭票", true},
+		{mustDate(2023, 9, 13), "王重言", true},
+		{mustDate(2023, 9, 14), "史昌浩", true},
+		{mustDate(2023, 9, 15), "史玮宸", true},
+		{mustDate(2023, 9, 15), "杨欣媛", true},
+		{mustDate(2023, 9, 18), "孙谦", true},
+		{mustDate(2023, 9, 18), "赵韵瑾", true},
+		{mustDate(2023, 9, 18), "王子歇", false},
+		{mustDate(2023, 9, 21), "赵韵瑾", false},
+		{mustDate(2023, 9, 21), "王子歇", false},
+		{mustDate(2023, 10, 7), "王子歇", true},
+		{mustDate(2023, 10, 7), "朱诗玥", true},
+		{mustDate(2023, 10, 8), "朱诗玥", false},
+	}
+
+	for _, testcase := range testcases {
+		t.Run("", func(t *testing.T) {
+			got := isTurn(testcase.name, testcase.date)
+			if got != testcase.want {
+				t.Errorf("%s 值日的是[%s]：want:%v, got:%v",
+					testcase.date, testcase.name, testcase.want, got)
+			}
+		})
+	}
+}
