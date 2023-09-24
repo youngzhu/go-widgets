@@ -27,7 +27,10 @@ func init() {
 func main() {
 	name := flag.String("name", "", "学生的姓名")
 	flag.Parse()
-	log.Println(*name)
+	log.Printf("学生姓名：%q\n", *name)
+	if *name == "" {
+		panic("请输入正确的学生姓名")
+	}
 
 	// 提前一天通知
 	// 今天检查明天是否是该同学值班
