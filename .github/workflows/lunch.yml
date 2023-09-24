@@ -1,28 +1,33 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-name: Go
+name: 今天是某某家长陪餐吗？
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  schedule:
+    - cron: '1 0 * * *'
+
+  workflow_dispatch:
 
 jobs:
 
-  build:
+  lunching:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Set up Go
-      uses: actions/setup-go@v4
-      with:
-        go-version: '1.20'
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.17'
 
-    - name: Build
-      run: go build -v ./...
+      - name: Fetch required Go modules
+        run:  cd lunch && go mod download
 
-    - name: Test
-      run: go test -v ./...
+      - name: Run it
+        env:
+          TZ: Asia/Shanghai
+          GO_MAIL_FROM: ${{ secrets.GO_MAIL_FROM }}
+          GO_MAIL_FROM_PWD: ${{ secrets.GO_MAIL_FROM_PWD }}
+          GO_MAIL_TO: ${{ secrets.GO_MAIL_TO }}
+        run: cd lunch && go run main.go
