@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"flag"
+	"fmt"
 	smail "github.com/youngzhu/go-smail"
 	"github.com/youngzhu/godate"
 	"log"
@@ -17,10 +18,6 @@ import (
 提前一天邮件通知指定姓名的同学
 */
 
-const (
-	subject = "陪餐 11:20-12:20" // 邮件标题
-)
-
 func init() {
 	loadBabies()
 	loadExtraDays()
@@ -30,14 +27,18 @@ func init() {
 func main() {
 	name := flag.String("name", "", "学生的姓名")
 	flag.Parse()
-	log.Println(*name)
+	log.Printf("学生姓名：%q\n", *name)
+	if *name == "" {
+		panic("请输入正确的学生姓名")
+	}
 
 	// 提前一天通知
 	// 今天检查明天是否是该同学值班
 	// 如果是，则发送提醒邮件
 	tomorrow, _ := godate.Today().AddDay(1)
 	if result := isTurn(*name, tomorrow); result {
-		err := smail.SendMail("", "")
+		subject := fmt.Sprintf("明日（%s)陪餐 11:20-12:20", tomorrow)
+		err := smail.SendMail(subject, "")
 		if err != nil {
 			log.Println("邮件发送失败：" + err.Error())
 		} else {
