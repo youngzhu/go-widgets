@@ -73,10 +73,10 @@ func isOffDay(date godate.Date) bool {
 		return true
 	}
 
-	return isWeekend(date) && !containsDate(extraWorkdays, date)
+	return date.IsWeekend() && !containsDate(extraWorkdays, date)
 }
 
-var startDate = mustDate(2023, 9, 11) // 陪餐首次开始的时间
+var startDate = godate.MustDate(2023, 9, 11) // 陪餐首次开始的时间
 
 // 统计至截止日期（cutoffDate）上学的总天数（加上补班，减去节假日）
 func countAllDays(cutoffDate godate.Date) int {
@@ -86,9 +86,9 @@ func countAllDays(cutoffDate godate.Date) int {
 
 	it := startDate
 	var err error
-	for it.Before(cutoffDate.Time) {
+	for it.Before(cutoffDate) {
 
-		if !isWeekend(it) { // 工作日
+		if !it.IsWeekend() { // 工作日
 			// 如果不是额外的假日，则+1
 			if !containsDate(extraHolidays, it) {
 				count++
@@ -107,12 +107,6 @@ func countAllDays(cutoffDate godate.Date) int {
 	}
 
 	return count
-}
-
-// todo 替换掉
-func isWeekend(d godate.Date) bool {
-	weekday := d.Weekday()
-	return godate.Saturday == weekday || godate.Sunday == weekday
 }
 
 var (
@@ -158,7 +152,7 @@ func parseDate(s string) []godate.Date {
 		end := split[1]
 		beginDate := toDate(begin)
 		endDate := toDate(end)
-		for beginDate.Before(endDate.Time) {
+		for beginDate.Before(endDate) {
 			dates = append(dates, beginDate)
 			beginDate, _ = beginDate.AddDay(1)
 		}
@@ -194,12 +188,6 @@ func loadBabies() {
 	for scanner.Scan() {
 		babies = append(babies, scanner.Text())
 	}
-}
-
-// todo 替换掉
-func mustDate(year, month, day int) (date godate.Date) {
-	date, _ = godate.NewDateYMD(year, month, day)
-	return
 }
 
 func containsDate(slice []godate.Date, date godate.Date) bool {

@@ -24,13 +24,13 @@ func TestLoadExtraDays_holidays(t *testing.T) {
 	//fmt.Println(extraWorkdays)
 
 	holidays := []godate.Date{
-		mustDate(2023, 9, 19),
-		mustDate(2023, 10, 1),
-		mustDate(2023, 10, 2),
-		mustDate(2023, 10, 3),
-		mustDate(2023, 10, 4),
-		mustDate(2023, 10, 5),
-		mustDate(2023, 10, 6),
+		godate.MustDate(2023, 9, 19),
+		godate.MustDate(2023, 10, 1),
+		godate.MustDate(2023, 10, 2),
+		godate.MustDate(2023, 10, 3),
+		godate.MustDate(2023, 10, 4),
+		godate.MustDate(2023, 10, 5),
+		godate.MustDate(2023, 10, 6),
 	}
 
 	for _, holiday := range holidays {
@@ -48,8 +48,8 @@ func TestLoadExtraDays_workdays(t *testing.T) {
 	//fmt.Println(extraWorkdays)
 
 	workdays := []godate.Date{
-		mustDate(2023, 10, 7),
-		mustDate(2023, 10, 8),
+		godate.MustDate(2023, 10, 7),
+		godate.MustDate(2023, 10, 8),
 	}
 
 	for _, workday := range workdays {
@@ -66,10 +66,10 @@ func TestCountAllDays(t *testing.T) {
 		date godate.Date
 		days int
 	}{
-		{mustDate(2023, 9, 15), 5},
-		{mustDate(2023, 9, 16), 5},
-		{mustDate(2023, 9, 17), 5},
-		{mustDate(2023, 9, 18), 6},
+		{godate.MustDate(2023, 9, 15), 5},
+		{godate.MustDate(2023, 9, 16), 5},
+		{godate.MustDate(2023, 9, 17), 5},
+		{godate.MustDate(2023, 9, 18), 6},
 	}
 
 	for _, testcase := range testcases {
@@ -87,18 +87,18 @@ func TestWhoIs(t *testing.T) {
 		date godate.Date
 		name string
 	}{
-		{mustDate(2023, 9, 11), "陈煜珉"},
-		{mustDate(2023, 9, 12), "王书颖"},
-		{mustDate(2023, 9, 12), "杭票"},
-		{mustDate(2023, 9, 13), "王重言"},
-		{mustDate(2023, 9, 14), "史昌浩"},
-		{mustDate(2023, 9, 15), "史玮宸"},
-		{mustDate(2023, 9, 15), "杨欣媛"},
-		{mustDate(2023, 9, 18), "孙谦"},
-		{mustDate(2023, 9, 18), "赵韵瑾"},
-		{mustDate(2023, 9, 21), ""},
-		{mustDate(2023, 10, 7), "王子歇"},
-		{mustDate(2023, 10, 7), "朱诗玥"},
+		{godate.MustDate(2023, 9, 11), "陈煜珉"},
+		{godate.MustDate(2023, 9, 12), "王书颖"},
+		{godate.MustDate(2023, 9, 12), "杭票"},
+		{godate.MustDate(2023, 9, 13), "王重言"},
+		{godate.MustDate(2023, 9, 14), "史昌浩"},
+		{godate.MustDate(2023, 9, 15), "史玮宸"},
+		{godate.MustDate(2023, 9, 15), "杨欣媛"},
+		{godate.MustDate(2023, 9, 18), "孙谦"},
+		{godate.MustDate(2023, 9, 18), "赵韵瑾"},
+		{godate.MustDate(2023, 9, 21), ""},
+		{godate.MustDate(2023, 10, 7), "王子歇"},
+		{godate.MustDate(2023, 10, 7), "朱诗玥"},
 	}
 
 	for _, testcase := range testcases {
@@ -117,21 +117,21 @@ func TestIsTurn(t *testing.T) {
 		name string
 		want bool
 	}{
-		{mustDate(2023, 9, 11), "陈煜珉", true},
-		{mustDate(2023, 9, 12), "王书颖", true},
-		{mustDate(2023, 9, 12), "杭票", true},
-		{mustDate(2023, 9, 13), "王重言", true},
-		{mustDate(2023, 9, 14), "史昌浩", true},
-		{mustDate(2023, 9, 15), "史玮宸", true},
-		{mustDate(2023, 9, 15), "杨欣媛", true},
-		{mustDate(2023, 9, 18), "孙谦", true},
-		{mustDate(2023, 9, 18), "赵韵瑾", true},
-		{mustDate(2023, 9, 18), "王子歇", false},
-		{mustDate(2023, 9, 21), "赵韵瑾", false},
-		{mustDate(2023, 9, 21), "王子歇", false},
-		{mustDate(2023, 10, 7), "王子歇", true},
-		{mustDate(2023, 10, 7), "朱诗玥", true},
-		{mustDate(2023, 10, 8), "朱诗玥", false},
+		{godate.MustDate(2023, 9, 11), "陈煜珉", true},
+		{godate.MustDate(2023, 9, 12), "王书颖", true},
+		{godate.MustDate(2023, 9, 12), "杭票", true},
+		{godate.MustDate(2023, 9, 13), "王重言", true},
+		{godate.MustDate(2023, 9, 14), "史昌浩", true},
+		{godate.MustDate(2023, 9, 15), "史玮宸", true},
+		{godate.MustDate(2023, 9, 15), "杨欣媛", true},
+		{godate.MustDate(2023, 9, 18), "孙谦", true},
+		{godate.MustDate(2023, 9, 18), "赵韵瑾", true},
+		{godate.MustDate(2023, 9, 18), "王子歇", false},
+		{godate.MustDate(2023, 9, 21), "赵韵瑾", false},
+		{godate.MustDate(2023, 9, 21), "王子歇", false},
+		{godate.MustDate(2023, 10, 7), "王子歇", true},
+		{godate.MustDate(2023, 10, 7), "朱诗玥", true},
+		{godate.MustDate(2023, 10, 8), "朱诗玥", false},
 	}
 
 	for _, testcase := range testcases {
