@@ -5,7 +5,7 @@ name: 今天是某某家长陪餐吗？
 
 on:
   schedule:
-    - cron: '1 0 * * *'
+    - cron: '0 0 * * *'
 
   workflow_dispatch:
 
