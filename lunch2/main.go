@@ -15,9 +15,8 @@ import (
 实现：每天邮件提醒陪餐轮值名单
 
 1. 判断今天是否为工作日
-1.1 是，进入第二步
-1.2 否，结束
-
+	1.1 是，进入第2步
+	1.2 否，结束
 2. 计算从起始日到今天，共有多少工作日
 3. 总天数 % 一轮下来经历的天数，即今天值班的索引 idx
 4. babies[idx] 即今天值班的家长
@@ -40,7 +39,7 @@ func init() {
 func main() {
 	today := godate.Today()
 	if isOffDay(today) {
-		fmt.Println("休息！")
+		log.Println("休息！")
 	} else {
 		count := countAllDays(today)
 		idx := count%len(babies) - 1
