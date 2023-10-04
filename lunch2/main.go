@@ -25,6 +25,18 @@ import (
 
 var startDate = godate.MustDate(2023, 9, 11) // 陪餐首次开始的时间
 
+var (
+	babies = make([]string, 0)
+
+	extraHolidays = make([]godate.Date, 0)
+	extraWorkdays = make([]godate.Date, 0)
+)
+
+func init() {
+	loadBabies()
+	loadExtraDays()
+}
+
 func main() {
 	today := godate.Today()
 	if isOffDay(today) {
@@ -86,13 +98,6 @@ func isOffDay(date godate.Date) bool {
 
 	return date.IsWeekend() && !containsDate(extraWorkdays, date)
 }
-
-var (
-	babies = make([]string, 0)
-
-	extraHolidays = make([]godate.Date, 0)
-	extraWorkdays = make([]godate.Date, 0)
-)
 
 func loadExtraDays() {
 	f, err := os.Open("extra_days.txt")
