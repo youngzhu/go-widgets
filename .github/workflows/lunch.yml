@@ -1,7 +1,7 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-name: 今天是某某家长陪餐吗？
+name: 明天要陪餐吗？
 
 on:
   schedule:
