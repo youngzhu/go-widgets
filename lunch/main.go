@@ -57,6 +57,7 @@ func isTurn(name string, date godate.Date) bool {
 
 // 指定日期（date）该谁值班
 func whoIs(date godate.Date) string {
+	log.Println("whoIs.date:", date)
 	// 如果 date 是休息日，直接返回 ""
 	if isOffDay(date) {
 		return ""
