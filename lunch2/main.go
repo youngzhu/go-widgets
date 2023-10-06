@@ -62,17 +62,8 @@ func countAllDays(cutoffDate godate.Date) int {
 	it := startDate
 	var err error
 	for it.Before(cutoffDate) {
-
-		if !it.IsWeekend() { // 工作日
-			// 如果不是额外的假日，则+1
-			if !containsDate(extraHolidays, it) {
-				count++
-			}
-		} else { // 周末
-			// 如果补班，则+1
-			if containsDate(extraWorkdays, it) {
-				count++
-			}
+		if !isOffDay(it) {
+			count++
 		}
 
 		it, err = it.AddDay(1)
