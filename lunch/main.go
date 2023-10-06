@@ -50,6 +50,8 @@ func main() {
 
 func isTurn(name string, date godate.Date) bool {
 	names := whoIs(date)
+	log.Println("names:", names)
+	log.Println("name:", name)
 	return strings.Contains(names, name)
 }
 
