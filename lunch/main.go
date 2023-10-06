@@ -108,6 +108,7 @@ func countAllDays(cutoffDate godate.Date) int {
 		//}
 
 		if !isOffDay(it) {
+			fmt.Println(it)
 			count++
 		}
 
