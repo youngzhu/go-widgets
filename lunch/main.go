@@ -36,7 +36,7 @@ func main() {
 	// 今天检查明天是否是该同学值班
 	// 如果是，则发送提醒邮件
 	tomorrow, _ := godate.Today().AddDay(1)
-	log.Println(tomorrow)
+	log.Println("tomorrow:", tomorrow)
 	if result := isTurn(*name, tomorrow); result {
 		subject := fmt.Sprintf("明日（%s)陪餐 11:20-12:20", tomorrow)
 		err := smail.SendMail(subject, "")
@@ -50,21 +50,21 @@ func main() {
 
 func isTurn(name string, date godate.Date) bool {
 	names := whoIs(date)
-	log.Println("names:", names)
-	log.Println("name:", name)
+	//log.Println("names:", names)
+	//log.Println("name:", name)
 	return strings.Contains(names, name)
 }
 
 // 指定日期（date）该谁值班
 func whoIs(date godate.Date) string {
-	log.Println("whoIs.date:", date)
+	//log.Println("whoIs.date:", date)
 	// 如果 date 是休息日，直接返回 ""
 	if isOffDay(date) {
 		return ""
 	}
 	count := countAllDays(date)
 	//fmt.Println("babies:", len(babies))
-	fmt.Println("count:", count)
+	log.Println("总天数:", count)
 	idx := count%len(babies) - 1
 	return babies[idx]
 }
@@ -90,6 +90,7 @@ func countAllDays(cutoffDate godate.Date) int {
 	count := 0
 
 	cutoffDate, _ = cutoffDate.AddDay(1) // 当天也要放到for循环里比较
+	//fmt.Println("cutoffDate:", cutoffDate.Time)
 
 	it := startDate
 	var err error
@@ -108,7 +109,7 @@ func countAllDays(cutoffDate godate.Date) int {
 		//}
 
 		if !isOffDay(it) {
-			fmt.Println(it)
+			//fmt.Println(it.Time)
 			count++
 		}
 

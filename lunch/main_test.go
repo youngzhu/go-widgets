@@ -70,6 +70,9 @@ func TestCountAllDays(t *testing.T) {
 		{godate.MustDate(2023, 9, 16), 5},
 		{godate.MustDate(2023, 9, 17), 5},
 		{godate.MustDate(2023, 9, 18), 6},
+		{godate.MustDate(2023, 10, 6), 6},
+		{godate.MustDate(2023, 10, 7), 7},
+		{godate.MustDate(2023, 10, 8), 8},
 	}
 
 	for _, testcase := range testcases {
@@ -99,6 +102,8 @@ func TestWhoIs(t *testing.T) {
 		{godate.MustDate(2023, 9, 21), ""},
 		{godate.MustDate(2023, 10, 7), "王子歇"},
 		{godate.MustDate(2023, 10, 7), "朱诗玥"},
+		{godate.MustDate(2023, 10, 8), "吴若涵"},
+		{godate.MustDate(2023, 10, 8), "孙启航"},
 	}
 
 	for _, testcase := range testcases {
