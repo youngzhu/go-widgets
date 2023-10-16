@@ -65,7 +65,8 @@ func whoIs(date godate.Date) string {
 	count := countAllDays(date)
 	//fmt.Println("babies:", len(babies))
 	log.Println("总天数:", count)
-	idx := count%len(babies) - 1
+	//idx := count%len(babies) - 1
+	idx := (count - 1) % len(babies)
 	return babies[idx]
 }
 

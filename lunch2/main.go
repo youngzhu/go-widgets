@@ -42,7 +42,8 @@ func main() {
 		log.Println("休息！")
 	} else {
 		count := countAllDays(today)
-		idx := count%len(babies) - 1
+		//idx := count%len(babies) - 1
+		idx := (count - 1) % len(babies)
 		subject := fmt.Sprintf("今日（%s)陪餐 11:20-12:20", today)
 		err := smail.SendMail(subject, babies[idx]+"家长")
 		if err != nil {

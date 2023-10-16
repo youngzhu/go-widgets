@@ -104,6 +104,8 @@ func TestWhoIs(t *testing.T) {
 		{godate.MustDate(2023, 10, 7), "朱诗玥"},
 		{godate.MustDate(2023, 10, 8), "吴若涵"},
 		{godate.MustDate(2023, 10, 8), "孙启航"},
+		{godate.MustDate(2023, 10, 12), "付泽"},
+		{godate.MustDate(2023, 10, 13), "林兩宸"},
 	}
 
 	for _, testcase := range testcases {
