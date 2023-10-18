@@ -38,7 +38,7 @@ func main() {
 	tomorrow, _ := godate.Today().AddDay(1)
 	log.Println("tomorrow:", tomorrow)
 	if result := isTurn(*name, tomorrow); result {
-		subject := fmt.Sprintf("明日（%s)陪餐 11:20-12:20", tomorrow)
+		subject := fmt.Sprintf("明日（%s)陪餐 11:20-12:20", tomorrow.FullStringCN())
 		err := smail.SendMail(subject, "")
 		if err != nil {
 			log.Println("邮件发送失败：" + err.Error())
