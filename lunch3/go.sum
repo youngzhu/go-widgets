@@ -169,6 +169,8 @@ github.com/subosito/gotenv v1.4.2 h1:X1TuBLAMDFbaTAChgCBLu3DU3UPyELpnF2jjJ2cz/S8
 github.com/subosito/gotenv v1.4.2/go.mod h1:ayKnFf/c6rvx/2iiLrJUk1e6plDbT3edrFNGqEflhK0=
 github.com/youngzhu/go-basecamp v0.0.0-20231103073019-46aa654411cf h1:iWikSv/AHLJOyMFZkL9ki7JGacgPs6DkTsfAUpFSy9k=
 github.com/youngzhu/go-basecamp v0.0.0-20231103073019-46aa654411cf/go.mod h1:WpAZVVxgukkWa7UgSCG9AM3Q8luGR3ePXEgdfxyw42s=
+github.com/youngzhu/go-basecamp v0.1.0 h1:/8Ew0UTuUVBMEvXYlVXnqPtjhEh40JRJtiU8sD0GGJ4=
+github.com/youngzhu/go-basecamp v0.1.0/go.mod h1:WpAZVVxgukkWa7UgSCG9AM3Q8luGR3ePXEgdfxyw42s=
 github.com/youngzhu/go2chinese v0.0.0-20231016102312-b419cc4c7cb7 h1:S2hot6xKH0xo6XHVRBkVYotKOIyAiTlL4H+ESCE//hE=
 github.com/youngzhu/go2chinese v0.0.0-20231016102312-b419cc4c7cb7/go.mod h1:OKBVkzfmeILKS1Y4YXfpqB+DK2lLquoHOmTjSi97kNg=
 github.com/youngzhu/godate v0.5.1 h1:Z5cokKJAmWuekGdBWmERgg54F5W122+EW++NhteV0/c=

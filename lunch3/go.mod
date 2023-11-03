@@ -3,7 +3,7 @@ module lunch3
 go 1.17
 
 require (
-	github.com/youngzhu/go-basecamp v0.0.0-20231103073019-46aa654411cf
+	github.com/youngzhu/go-basecamp v0.1.0
 	github.com/youngzhu/godate v0.5.1
 )
 
