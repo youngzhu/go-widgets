@@ -5,7 +5,7 @@ name: lunch+Basecamp
 
 on:
   schedule:
-    - cron: '6 0 * * *'
+    - cron: '1 0 * * *'
 
   workflow_dispatch:
 
@@ -30,4 +30,4 @@ jobs:
           GO_MAIL_FROM: ${{ secrets.GO_MAIL_FROM }}
           GO_MAIL_FROM_PWD: ${{ secrets.GO_MAIL_FROM_PWD }}
           GO_MAIL_TO: ${{ secrets.GO_MAIL_TO }}
-        run: cd lunch && go run main.go -name 朱诗玥
+        run: cd lunch3 && go run main.go -name 朱诗玥
