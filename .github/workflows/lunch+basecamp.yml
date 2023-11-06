@@ -1,17 +1,17 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-name: 今天是谁陪餐？
+name: lunch+Basecamp
 
 on:
   schedule:
-    - cron: '1 22 * * *'
+    - cron: '1 0 * * *'
 
   workflow_dispatch:
 
 jobs:
 
-  who:
+  lunching:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
           go-version: '1.17'
 
       - name: Fetch required Go modules
-        run:  cd lunch2 && go mod download
+        run:  cd lunch && go mod download
 
       - name: Run it
         env:
@@ -30,4 +30,4 @@ jobs:
           GO_MAIL_FROM: ${{ secrets.GO_MAIL_FROM }}
           GO_MAIL_FROM_PWD: ${{ secrets.GO_MAIL_FROM_PWD }}
           GO_MAIL_TO: ${{ secrets.GO_MAIL_TO }}
-        run: cd lunch2 && go run main.go
+        run: cd lunch3 && go run main.go -name 朱诗玥
