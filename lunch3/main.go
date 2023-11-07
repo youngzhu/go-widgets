@@ -36,8 +36,7 @@ func main() {
 	// 提前一天通知
 	// 今天检查明天是否是该同学值班
 	// 如果是，则新增日程
-	//tomorrow, _ := godate.Today().AddDay(1)
-	tomorrow := godate.Today()
+	tomorrow, _ := godate.Today().AddDay(1)
 	log.Println("tomorrow:", tomorrow)
 	if result := isTurn(*name, tomorrow); result {
 		//subject := fmt.Sprintf("明日（%s)陪餐 11:20-12:20", tomorrow.FullStringCN())
