@@ -95,7 +95,7 @@ func isOffDay(date godate.Date) bool {
 	return date.IsWeekend() && !containsDate(extraWorkdays, date)
 }
 
-var startDate = godate.MustDate(2023, 9, 11) // 陪餐首次开始的时间
+var startDate = godate.MustDate(2023, 11, 6) // 陪餐首次开始的时间
 
 // 统计至截止日期（cutoffDate）上学的总天数（加上补班，减去节假日）
 func countAllDays(cutoffDate godate.Date) int {

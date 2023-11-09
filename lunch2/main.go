@@ -22,7 +22,7 @@ import (
 4. babies[idx] 即今天值班的家长
 */
 
-var startDate = godate.MustDate(2023, 9, 11) // 陪餐首次开始的时间
+var startDate = godate.MustDate(2023, 11, 6) // 陪餐首次开始的时间
 
 var (
 	babies = make([]string, 0)
@@ -90,8 +90,10 @@ func isOffDay(date godate.Date) bool {
 	return date.IsWeekend() && !containsDate(extraWorkdays, date)
 }
 
+const dataPath = "../data/lunch/"
+
 func loadExtraDays() {
-	f, err := os.Open("extra_days.txt")
+	f, err := os.Open(dataPath + "extra_days.txt")
 	if err != nil {
 		panic(err)
 	}
@@ -153,7 +155,7 @@ func toDate(date string) godate.Date {
 }
 
 func loadBabies() {
-	f, err := os.Open("babies.txt")
+	f, err := os.Open(dataPath + "babies.txt")
 	if err != nil {
 		panic(err)
 	}
