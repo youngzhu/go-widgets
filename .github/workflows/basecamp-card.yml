@@ -1,0 +1,32 @@
+# This workflow will build a golang project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
+name:  Basecamp card
+
+on:
+  schedule:
+    - cron: '6 0 * * Mon'
+
+  workflow_dispatch:
+
+jobs:
+
+  lunching:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.17'
+
+      - name: Fetch required Go modules
+        run:  cd card && go mod download
+
+      - name: Run it
+        env:
+          TZ: Asia/Shanghai
+          BASECAMP_ACCOUNT_ID: ${{ secrets.BASECAMP_ACCOUNT_ID }}
+          BASECAMP_ACCESS_TOKEN: ${{ secrets.BASECAMP_ACCESS_TOKEN }}
+        run: cd card && go run main.go
