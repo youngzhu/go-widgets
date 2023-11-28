@@ -5,13 +5,15 @@ import (
 	"reminder"
 	"reminder/bocom"
 	"reminder/cmcc"
+	"reminder/pingan"
 )
 
 // 将优惠券信息加入到Basecamp的Todo中，防止过期忘记
 
 func init() {
-	register("cmcc", cmcc.CMCCReminder{})
-	register("bocom", bocom.BOCOMReminder{})
+	register("cmcc", cmcc.Reminder{})
+	register("bocom", bocom.Reminder{})
+	register("pingan", pingan.Reminder{})
 }
 
 func main() {

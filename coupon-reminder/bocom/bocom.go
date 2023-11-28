@@ -6,12 +6,11 @@ import (
 	"reminder"
 )
 
-type BOCOMReminder struct{}
+type Reminder struct{}
 
-func (r BOCOMReminder) Remind() {
+func (r Reminder) Remind() {
 	checkin()
 	salaryAward()
-
 }
 
 var today = reminder.Today

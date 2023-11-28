@@ -7,9 +7,9 @@ import (
 	"reminder"
 )
 
-type CMCCReminder struct{}
+type Reminder struct{}
 
-func (r CMCCReminder) Remind() {
+func (r Reminder) Remind() {
 	checkin()
 	rightsMonthly()
 }
