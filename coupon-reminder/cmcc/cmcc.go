@@ -8,12 +8,21 @@ import (
 	"reminder"
 )
 
-// 中国移动：每月1次权益超市
-
 type CMCCReminder struct{}
 
 func (r CMCCReminder) Remind() {
 	checkin()
+	rightsMonthly()
+}
+
+// 每月1次权益超市
+func rightsMonthly() {
+	today := godate.Today()
+	if today.Day() == 16 {
+		log.Println("移动权益领取提醒")
+		dueOn, _ := today.AddDay(10)
+		reminder.CreateTodo("移动权益领取", dueOn.String(), today.String())
+	}
 }
 
 // 每月7次签到，下旬做，也不必连续
