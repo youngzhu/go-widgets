@@ -3,6 +3,7 @@ package reminder
 import (
 	"github.com/youngzhu/go-basecamp"
 	"github.com/youngzhu/go-smail"
+	"github.com/youngzhu/godate"
 )
 
 type Reminder interface {
@@ -30,3 +31,7 @@ func CreateTodo(content, dueOn, startsOn string) {
 		panic(err)
 	}
 }
+
+var (
+	Today = godate.Today()
+)

@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"reminder"
+	"reminder/bocom"
 	"reminder/cmcc"
 )
 
@@ -10,6 +11,7 @@ import (
 
 func init() {
 	register("cmcc", cmcc.CMCCReminder{})
+	register("bocom", bocom.BOCOMReminder{})
 }
 
 func main() {
