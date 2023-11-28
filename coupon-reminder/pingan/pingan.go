@@ -13,7 +13,7 @@ func (r Reminder) Remind() {
 	if today.Day() == 11 {
 		log.Println("平安好车主-用卡券")
 		dueOn, _ := today.AddDay(15)
-		reminder.CreateTodo("平安好车主-用卡券", dueOn.String(), today.String())
+		reminder.CreateTodo("平安好车主-用卡券", dueOn, today)
 	}
 }
 

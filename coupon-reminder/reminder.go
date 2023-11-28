@@ -16,11 +16,11 @@ const (
 	todoListTitle = "券"
 )
 
-func CreateTodo(content, dueOn, startsOn string) {
+func CreateTodo(content string, dueOn, startsOn godate.Date) {
 	todo := basecamp.Todo{
 		Content:  content,
-		DueOn:    dueOn,
-		StartsOn: startsOn,
+		DueOn:    dueOn.String(),
+		StartsOn: startsOn.String(),
 	}
 
 	err := basecamp.CreateTodo(projectName, todoSetTitle, todoListTitle, todo)

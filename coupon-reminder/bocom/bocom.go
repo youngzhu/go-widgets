@@ -21,7 +21,7 @@ func salaryAward() {
 	if today.Day() == 10 {
 		log.Println("交行工资卡奖励")
 		dueOn, _ := today.AddDay(30)
-		reminder.CreateTodo("交行储蓄卡20-10", dueOn.String(), today.String())
+		reminder.CreateTodo("交行储蓄卡20-10", dueOn, today)
 	}
 }
 
@@ -30,6 +30,6 @@ func checkin() {
 	if today.Day() == 1 {
 		log.Println("交行App签到")
 		dueOn, _ := today.AddDay(10)
-		reminder.CreateTodo("交行App签到", dueOn.String(), today.String())
+		reminder.CreateTodo("交行App签到", dueOn, today)
 	}
 }

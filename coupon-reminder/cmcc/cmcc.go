@@ -21,7 +21,7 @@ func rightsMonthly() {
 	if today.Day() == 16 {
 		log.Println("移动权益领取提醒")
 		dueOn, _ := today.AddDay(10)
-		reminder.CreateTodo("移动权益领取", dueOn.String(), today.String())
+		reminder.CreateTodo("移动权益领取", dueOn, today)
 	}
 }
 
@@ -34,7 +34,7 @@ func checkin() {
 		dueOn, _ := today.AddDay(10)
 		for i := 0; i < 7; i++ {
 			content = fmt.Sprintf("移动签到%d/7", i+1)
-			reminder.CreateTodo(content, dueOn.String(), today.String())
+			reminder.CreateTodo(content, dueOn, today)
 		}
 	}
 }
