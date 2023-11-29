@@ -4,25 +4,32 @@
 name: 优惠券提醒
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  schedule:
+    - cron: '10 0 1-25 * *'
+
+  workflow_dispatch:
 
 jobs:
 
-  build:
+  lunching:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Set up Go
-      uses: actions/setup-go@v4
-      with:
-        go-version: '1.20'
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.17'
 
-    - name: Build
-      run: go build -v ./...
+      - name: Fetch required Go modules
+        run:  cd coupon-reminder && go mod download
 
-    - name: Test
-      run: go test -v ./...
+      - name: Run it
+        env:
+          TZ: Asia/Shanghai
+          BASECAMP_ACCOUNT_ID: ${{ secrets.BASECAMP_ACCOUNT_ID }}
+          BASECAMP_ACCESS_TOKEN: ${{ secrets.BASECAMP_ACCESS_TOKEN }}
+          GO_MAIL_FROM: ${{ secrets.GO_MAIL_FROM }}
+          GO_MAIL_FROM_PWD: ${{ secrets.GO_MAIL_FROM_PWD }}
+          GO_MAIL_TO: ${{ secrets.GO_MAIL_TO }}
+        run: cd coupon-reminder && go run main.go
