@@ -29,7 +29,7 @@ func main() {
 var reminders = make(map[string]reminder.Reminder)
 
 func register(s string, r reminder.Reminder) {
-	if _, exists := reminders[s]; exists {
+	if _, exists := reminders[s]; !exists {
 		log.Println("Register Reminder:", s)
 		reminders[s] = r
 	}
