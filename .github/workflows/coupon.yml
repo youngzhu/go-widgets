@@ -32,4 +32,4 @@ jobs:
           GO_MAIL_FROM: ${{ secrets.GO_MAIL_FROM }}
           GO_MAIL_FROM_PWD: ${{ secrets.GO_MAIL_FROM_PWD }}
           GO_MAIL_TO: ${{ secrets.GO_MAIL_TO }}
-        run: cd coupon-reminder && go run main.go
+        run: cd coupon-reminder/main && go run main.go
