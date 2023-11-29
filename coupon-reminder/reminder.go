@@ -4,6 +4,7 @@ import (
 	"github.com/youngzhu/go-basecamp"
 	"github.com/youngzhu/go-smail"
 	"github.com/youngzhu/godate"
+	"time"
 )
 
 type Reminder interface {
@@ -30,6 +31,9 @@ func CreateTodo(content string, dueOn, startsOn godate.Date) {
 		smail.SendMail("优惠券添加失败！", err.Error())
 		panic(err)
 	}
+
+	//
+	time.Sleep(time.Millisecond * 500)
 }
 
 var (
