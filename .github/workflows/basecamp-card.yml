@@ -29,4 +29,5 @@ jobs:
           TZ: Asia/Shanghai
           BASECAMP_ACCOUNT_ID: ${{ secrets.BASECAMP_ACCOUNT_ID }}
           BASECAMP_ACCESS_TOKEN: ${{ secrets.BASECAMP_ACCESS_TOKEN }}
+          BASECAMP_REFRESH_TOKEN: ${{ secrets.BASECAMP_REFRESH_TOKEN }}
         run: cd card && go run main.go

@@ -22,11 +22,12 @@ jobs:
           go-version: '1.17'
 
       - name: Fetch required Go modules
-        run:  cd lunch && go mod download
+        run:  cd lunch3 && go mod download
 
       - name: Run it
         env:
           TZ: Asia/Shanghai
           BASECAMP_ACCOUNT_ID: ${{ secrets.BASECAMP_ACCOUNT_ID }}
           BASECAMP_ACCESS_TOKEN: ${{ secrets.BASECAMP_ACCESS_TOKEN }}
+          BASECAMP_REFRESH_TOKEN: ${{ secrets.BASECAMP_REFRESH_TOKEN }}
         run: cd lunch3 && go run main.go -name 朱诗玥
