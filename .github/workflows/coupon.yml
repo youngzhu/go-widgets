@@ -30,6 +30,8 @@ jobs:
           BASECAMP_ACCOUNT_ID: ${{ secrets.BASECAMP_ACCOUNT_ID }}
           BASECAMP_ACCESS_TOKEN: ${{ secrets.BASECAMP_ACCESS_TOKEN }}
           BASECAMP_REFRESH_TOKEN: ${{ secrets.BASECAMP_REFRESH_TOKEN }}
+          BASECAMP_CLIENTID: ${{ secrets.BASECAMP_CLIENTID }}
+          BASECAMP_CLIENTSECRET: ${{ secrets.BASECAMP_CLIENTSECRET }}
           GO_MAIL_FROM: ${{ secrets.GO_MAIL_FROM }}
           GO_MAIL_FROM_PWD: ${{ secrets.GO_MAIL_FROM_PWD }}
           GO_MAIL_TO: ${{ secrets.GO_MAIL_TO }}

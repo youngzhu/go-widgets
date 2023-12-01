@@ -30,4 +30,6 @@ jobs:
           BASECAMP_ACCOUNT_ID: ${{ secrets.BASECAMP_ACCOUNT_ID }}
           BASECAMP_ACCESS_TOKEN: ${{ secrets.BASECAMP_ACCESS_TOKEN }}
           BASECAMP_REFRESH_TOKEN: ${{ secrets.BASECAMP_REFRESH_TOKEN }}
+          BASECAMP_CLIENTID: ${{ secrets.BASECAMP_CLIENTID }}
+          BASECAMP_CLIENTSECRET: ${{ secrets.BASECAMP_CLIENTSECRET }}
         run: cd lunch3 && go run main.go -name 朱诗玥
