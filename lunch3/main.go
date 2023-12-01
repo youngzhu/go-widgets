@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"flag"
 	"github.com/youngzhu/go-basecamp"
-	"github.com/youngzhu/go-basecamp/schedule"
 	"github.com/youngzhu/godate"
 	"log"
 	"os"
@@ -45,7 +44,7 @@ func main() {
 		start := tomorrow.Add(time.Hour * 11).Add(time.Minute * 20)
 		end := start.Add(time.Hour)
 		err := basecamp.AddScheduleEntry("宝塔小学", "Schedule",
-			schedule.Entry{
+			basecamp.ScheduleEntry{
 				Summary:  "陪餐",
 				StartsAt: start,
 				EndsAt:   end,
