@@ -24,7 +24,7 @@ func CreateTodo(content string, dueOn, startsOn godate.Date) {
 		StartsOn: startsOn.String(),
 	}
 
-	err := basecamp.CreateTodo(projectName, todoSetTitle, todoListTitle, todo)
+	err := basecamp.AddTodo(projectName, todoSetTitle, todoListTitle, todo)
 	if err != nil {
 		// 一个错，就会个个错，没必要继续了
 		// 发邮件，然后结束

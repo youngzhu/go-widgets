@@ -3,7 +3,7 @@ module reminder
 go 1.17
 
 require (
-	github.com/youngzhu/go-basecamp v0.4.1
+	github.com/youngzhu/go-basecamp v0.5.0
 	github.com/youngzhu/go-smail v0.1.2
 	github.com/youngzhu/godate v0.5.1
 )
