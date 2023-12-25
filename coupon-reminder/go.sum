@@ -171,8 +171,8 @@ github.com/stretchr/testify v1.8.4 h1:CcVxjf3Q8PM0mHUKJCdn+eZZtm5yQwehR5yeSVQQcU
 github.com/stretchr/testify v1.8.4/go.mod h1:sz/lmYIOXD/1dqDmKjjqLyZ2RngseejIcXlSw2iwfAo=
 github.com/subosito/gotenv v1.6.0 h1:9NlTDc1FTs4qu0DDq7AEtTPNw6SVm7uBMsUCUjABIf8=
 github.com/subosito/gotenv v1.6.0/go.mod h1:Dk4QP5c2W3ibzajGcXpNraDfq2IrhjMIvMSWPKKo0FU=
-github.com/youngzhu/go-basecamp v0.4.1 h1:P+bMvJXuZttP+J1uFcgGxvPUw2MdKd8Z/WElIN/uZr0=
-github.com/youngzhu/go-basecamp v0.4.1/go.mod h1:QVQx2tk2BLuMMu+sMBWKSH45DYgOFtES/Bk+UCBTiJg=
+github.com/youngzhu/go-basecamp v0.5.0 h1:dP1f49u+2hv06VXc1wecA5hzNAC8U9Kkjyspnbt+Fu4=
+github.com/youngzhu/go-basecamp v0.5.0/go.mod h1:QVQx2tk2BLuMMu+sMBWKSH45DYgOFtES/Bk+UCBTiJg=
 github.com/youngzhu/go-smail v0.1.2 h1:zPPl6akB6Blenf9xRg/j3uj/SvSkVg9INsWxqv3rEiY=
 github.com/youngzhu/go-smail v0.1.2/go.mod h1:ftExeNCNTwOxF0/BUhhYXaOiwvVeyNeIR7L6g+XZWtY=
 github.com/youngzhu/go2chinese v0.0.0-20231016102312-b419cc4c7cb7 h1:S2hot6xKH0xo6XHVRBkVYotKOIyAiTlL4H+ESCE//hE=
