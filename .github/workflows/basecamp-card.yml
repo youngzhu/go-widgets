@@ -5,7 +5,7 @@ name:  Basecamp card
 
 on:
   schedule:
-    - cron: '6 0 * * Mon'
+    - cron: '6 1 * * *'
 
   workflow_dispatch:
 
