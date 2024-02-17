@@ -10,7 +10,7 @@ type Reminder struct{}
 
 func (r Reminder) Remind() {
 	checkin()
-	salaryAward()
+	//salaryAward()
 }
 
 var today = reminder.Today
