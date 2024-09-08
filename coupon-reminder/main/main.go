@@ -5,7 +5,7 @@ import (
 	"reminder"
 	"reminder/bocom"
 	"reminder/cmcc"
-	"reminder/eleme"
+	// "reminder/eleme"
 	"reminder/pingan"
 )
 
