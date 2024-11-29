@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/youngzhu/go-basecamp"
 	"github.com/youngzhu/godate"
+	"sort"
 )
 
 const (
@@ -31,8 +32,12 @@ type loanItem struct {
 }
 
 var loans = []loanItem{
-	{"按揭", 4000, 1},
-	{"车贷", 3700, 10},
+	{"按揭", 3649, 1},
+	{"车贷", 3651, 10},
+	{"招行闪电贷1", 1956, 2},
+	{"招行闪电贷1", 1956, 2},
+	{"兴业现金分期", 2218, 14},
+	{"浙商消费e贷", 3700, 29},
 }
 
 func createTodos(loans []loanItem) []basecamp.Todo {
@@ -42,6 +47,10 @@ func createTodos(loans []loanItem) []basecamp.Todo {
 	for _, loan := range loans {
 		totalAmount += loan.amount
 	}
+
+	sort.Slice(loans, func(i, j int) bool {
+		return loans[i].due < loans[j].due
+	})
 
 	today := godate.Today()
 	for i, loan := range loans {

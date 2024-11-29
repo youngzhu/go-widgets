@@ -1,7 +1,9 @@
 package main
 
 import (
+	"github.com/magiconair/properties/assert"
 	"github.com/youngzhu/go-basecamp"
+	"sort"
 	"testing"
 )
 
@@ -34,4 +36,21 @@ func TestCreateTodos(t *testing.T) {
 
 func todoEqual(a, b basecamp.Todo) bool {
 	return a.Content == b.Content && a.DueOn == b.DueOn
+}
+
+func TestSort(t *testing.T) {
+	loans := []loanItem{
+		{"按揭", 0, 1},
+		{"车贷", 0, 10},
+		{"信用卡", 0, 3},
+	}
+
+	sort.Slice(loans, func(i, j int) bool {
+		return loans[i].due < loans[j].due
+	})
+
+	//println(loans)
+	assert.Equal(t, loans[0].due, 1)
+	assert.Equal(t, loans[1].due, 3)
+	assert.Equal(t, loans[2].due, 10)
 }
