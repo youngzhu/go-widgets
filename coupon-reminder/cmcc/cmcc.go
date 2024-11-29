@@ -28,7 +28,7 @@ func rightsMonthly() {
 // 每月7次签到，下旬做，也不必连续
 // 实现：每月15日，新建7条签到的TODO
 func checkin() {
-	if today.Day() == 15 {
+	if today.Day() == 19 {
 		log.Println("移动签到")
 		var content string
 		dueOn, _ := today.AddDay(10)

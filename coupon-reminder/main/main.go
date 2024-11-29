@@ -5,7 +5,7 @@ import (
 	"reminder"
 	"reminder/bocom"
 	"reminder/cmcc"
-	"reminder/eleme"
+	// "reminder/eleme"
 	"reminder/pingan"
 )
 
@@ -15,7 +15,7 @@ func init() {
 	register("cmcc", cmcc.Reminder{})
 	register("bocom", bocom.Reminder{})
 	register("pingan", pingan.Reminder{})
-	register("eleme", eleme.Reminder{})
+	// register("eleme", eleme.Reminder{})
 }
 
 func main() {
