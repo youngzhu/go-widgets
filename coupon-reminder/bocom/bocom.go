@@ -27,7 +27,7 @@ func salaryAward() {
 
 // 每月签到，小额的满减券
 func checkin() {
-	if today.Day() == 1 {
+	if today.Day() == 9 {
 		log.Println("交行App签到")
 		dueOn, _ := today.AddDay(10)
 		reminder.CreateTodo("交行App签到", dueOn, today)
