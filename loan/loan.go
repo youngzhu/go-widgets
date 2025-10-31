@@ -37,6 +37,7 @@ var loans = []loanItem{
 	{"招行闪电贷1", 1952, 2},
 	{"兴业现金分期", 2218, 13},
 	{"浙商", 2384, 14},
+	{"浦发", 650, 28},
 }
 
 func createTodos(loans []loanItem) []basecamp.Todo {
