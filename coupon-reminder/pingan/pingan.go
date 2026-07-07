@@ -10,7 +10,7 @@ import (
 type Reminder struct{}
 
 func (r Reminder) Remind() {
-	if today.Day() == 11 {
+	if today.Day() == 5 {
 		log.Println("平安好车主-用卡券")
 		dueOn, _ := today.AddDay(15)
 		reminder.CreateTodo("平安好车主-用卡券", dueOn, today)
