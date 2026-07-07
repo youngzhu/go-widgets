@@ -9,8 +9,8 @@ import (
 
 func TestCreateTodos(t *testing.T) {
 	input := []loanItem{
-		{"按揭", 4000, 1},
-		{"车贷", 3700, 10},
+		{"test-1", 4000, 1},
+		{"test-2", 3700, 10},
 	}
 
 	want := []basecamp.Todo{

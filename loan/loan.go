@@ -56,8 +56,9 @@ func createTodos(loans []loanItem) []basecamp.Todo {
 	for i, loan := range loans {
 		dueOn := godate.MustDate(today.Year(), today.Month().IntValue(), loan.due)
 		todos[i] = basecamp.Todo{
-			Content: fmt.Sprintf("%s(%.0f%%) %.2f/%.2f", loan.name, loan.amount/totalAmount*100, loan.amount, totalAmount),
-			DueOn:   dueOn.String(),
+			Content:     fmt.Sprintf("%s(%.0f%%) %.2f/%.2f", loan.name, loan.amount/totalAmount*100, loan.amount, totalAmount),
+			DueOn:       dueOn.String(),
+			AssigneeIds: []int64{36278984},
 		}
 	}
 

@@ -19,9 +19,10 @@ const (
 
 func CreateTodo(content string, dueOn, startsOn godate.Date) {
 	todo := basecamp.Todo{
-		Content:  content,
-		DueOn:    dueOn.String(),
-		StartsOn: startsOn.String(),
+		Content:     content,
+		DueOn:       dueOn.String(),
+		StartsOn:    startsOn.String(),
+		AssigneeIds: []int64{36278984},
 	}
 
 	err := basecamp.AddTodo(projectName, todoSetTitle, todoListTitle, todo)

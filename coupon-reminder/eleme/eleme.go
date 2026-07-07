@@ -12,7 +12,7 @@ type Reminder struct{}
 func (r Reminder) Remind() {
 	content := "饿了么-话费特惠充权益50-1"
 
-	if today.Day() == 20 {
+	if today.Day() == 7 {
 		log.Println(content)
 		dueOn, _ := today.AddDay(5)
 		reminder.CreateTodo(content, dueOn, today)
