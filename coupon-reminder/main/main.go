@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"reminder"
+	"reminder/alipay"
 	"reminder/bocom"
 	"reminder/ccb"
 	"reminder/cmcc"
@@ -17,6 +18,7 @@ func init() {
 	register("bocom", bocom.Reminder{})
 	register("pingan", pingan.Reminder{})
 	register("ccb", ccb.Reminder{})
+	register("alipay", alipay.Reminder{})
 	// register("eleme", eleme.Reminder{})
 }
 
